@@ -1,0 +1,26 @@
+.navDiv {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-family: Calibri;
+    font-weight: bold;
+   
+}
+
+.navButtonGroup {
+    display: flex;
+    justify-content: space-evenly;
+}
+.navButton{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width:120px;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+}

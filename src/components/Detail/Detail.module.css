@@ -1,0 +1,55 @@
+.detailContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    width: 100vw;
+}
+
+.dataAndImageContainer {
+    height: 90%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,500px);
+    max-width: 1000px;
+}
+
+
+
+.dataContainer {
+    padding: 20px 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.nameDiv{
+    display: flex;
+    align-items: center;
+    background-color: #057c8bcb;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height:50px;
+    padding: 0px 20px;
+}
+
+.imageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.detailImage {
+    height: 90%;
+    float: right;
+}
+

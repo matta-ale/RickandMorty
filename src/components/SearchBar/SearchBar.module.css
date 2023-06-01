@@ -1,0 +1,46 @@
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+    height: 75px;
+    opacity: 1;   
+}
+
+.searchBarDiv {  /*tarea, hacerlo responsive*/
+    width: 964px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 10px 0px 0px;
+    height: 75px;
+    
+    
+}
+
+.inputBar {
+    font-size:16px;
+    text-align:start;
+    height: 30px;
+    width: 400px;
+    border-radius: 5px;
+    margin-right: 6px;
+}
+
+.addButton {
+    display: flex;
+    color: black;
+    background-color: #f74b55;
+    font-size: 18px;
+    height: 30px;
+    width: auto; 
+    border-radius: 5px;
+    margin-right: 5px;
+    font-family: calibri;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 330px) { .searchBarDiv { width: 95%; } }
+@media screen and (min-width: 330px) and (max-width: 680px) { .searchBarDiv { width: 95%; } .inputBar {width: 65% }}
+@media screen and (min-width: 680px) and (max-width: 1004px) { .searchBarDiv { width: 95%; } }
+@media screen and (min-width: 1004px) and (max-width: 1230px) { .searchBarDiv { width: 964px; } }

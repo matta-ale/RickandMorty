@@ -1,0 +1,112 @@
+.card {
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 15px 15px 0px 0px rgba(0,0,0,0.75);
+}
+
+.card img {
+    
+    border-bottom: 5px ridge goldenrod;
+    
+    /*width: 100%;
+    heigth: 100%;*/
+}
+
+.imageAndTextContainer {
+    position: relative;
+    background-color: rgba(0, 0, 0,1);
+    
+    border: 5px ridge goldenrod;
+    max-width: 300px;
+    width: 300px;
+}
+
+.closeButton{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; /*con esto lo hago redondo (y ancho y alto iguales)*/
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgba(247, 75, 85,50%);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: rgba(247, 75, 85,80%);/*#f74b55*/
+    transform: scale(1.1);						 
+}
+
+.closeBbutton:active {
+    transform: scale(1);		/*#f74b55 pasado a opaco*/				 ;
+}
+
+.favButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%; /*con esto lo hago redondo (y ancho y alto iguales)*/
+    font-size: medium;
+    font-weight: bold;
+    background-color:goldenrod; 
+    opacity: 50%;
+    position: absolute;
+    top: 40px;
+    right: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.favButtonTrue {
+    opacity: 80%;
+}
+
+.favButton:hover {
+    opacity: 80%;
+    transform: scale(1.1);						 
+}
+
+.favBbutton:active {
+    transform: scale(1);		/*#f74b55 pasado a opaco*/				 ;
+}
+
+.nameDiv{
+    display: flex;
+    align-items: center;
+    background-color: #057c8bcb;
+    position: absolute;
+    top: 270px;
+    left: 0px;
+    /*transform: translate(-50%, -50%);*/
+    height:30px;
+    width:fit-content;
+    font-size: 1em;
+}
+
+.imageAndTextContainer h2{
+    padding: 0px 10px;
+    margin:0px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+}
+
+.imageAndTextContainer span {
+    font-size: 14px;
+    color:aquamarine;
+}
+
+.imageAndTextContainer .name{
+    font-size: 17px;
+}
+
+.infoDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 5px 0px;
+}

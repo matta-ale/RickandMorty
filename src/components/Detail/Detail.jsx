@@ -23,28 +23,34 @@ export default function Detail() {
 
   return (
     <div className={styles.detailContainer}>
-      <div className = {styles.dataAndImageContainer}>
+      <div className={styles.dataAndImageContainer}>
         <div className={styles.dataContainer}>
-          <div className={styles.nameDiv}><h2>{character?.name}</h2></div>
-          <h2>
-            <span>Status: </span>
-            {character?.status}
-          </h2>
-          <h2>
-            <span>Species: </span>
-            {character?.species}
-          </h2>
-          <h2>
-            <span>Gender: </span>
-            {character?.gender}
-          </h2>
-          <h2>
-            <span>Origin: </span>
-            {character.origin?.name}
-          </h2>
+          <div className={styles.dataSubContainer}>
+            <div className={styles.nameDiv}>
+              <h2 className={styles.h2Text}>{character?.name}</h2>
+            </div>
+            <div className={styles.dataTextContainer}>
+              <h2 className={styles.h2Text}>
+                <span>Status: {character?.status}</span>
+              </h2>
+              <h2 className={styles.h2Text}>
+                <span>Species: {character?.species}</span>
+              </h2>
+              <h2 className={styles.h2Text}>
+                <span>Gender: {character?.gender}</span>
+              </h2>
+              <h2 className={styles.h2Text}>
+                <span>Origin: {character.origin?.name}</span>
+              </h2>
+            </div>
+          </div>
         </div>
         <div className={styles.imageContainer}>
-          <img className={styles.detailImage} src={character?.image} alt='character' />
+          <img
+            className={styles.detailImage}
+            src={character?.image}
+            alt='character'
+          />
         </div>
       </div>
     </div>

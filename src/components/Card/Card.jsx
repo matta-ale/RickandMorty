@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../Helpers/PathRouters';
 import { addFav, removeFav } from '../../redux/actions';
 import { connect } from 'react-redux';
-import { useState , useEffect, useLocation} from 'react';
+import { useState , useEffect} from 'react';
 
 function Card(props) {
   const { id, name, status, species, gender, origin, image, onClose,addFav,removeFav,myFavorites } = props;

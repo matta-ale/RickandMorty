@@ -41,7 +41,7 @@ function App() {
     if (characters.some((char) => char.id === Number(id))) {
       window.alert('¡That character is already shown!');
     } else {
-      axios(`https://rickandmortyapi.com/api/character/${id}`)
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
         .then(({ data }) => {
           if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);

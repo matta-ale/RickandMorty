@@ -53,7 +53,7 @@ const Favorites = (props) => {
               status={char.status.toLowerCase()}
               species={char.species.toLowerCase()}
               gender={char.gender.toLowerCase()}
-              origin={char.origin.name}
+              origin={char.origin}
               image={char.image}
               onClose={onClose}
             />

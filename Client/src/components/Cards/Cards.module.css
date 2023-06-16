@@ -6,6 +6,17 @@
     max-width: 990px;
 }
 
+@media screen and (max-width: 900px) { 
+    .container { 
+        margin: 85px auto; 
+    } }
+
+@media screen and (max-width: 300px) { 
+    .container { 
+        display: flex;
+        flex-direction: column;
+    } }
+
 
 
 /* .container {

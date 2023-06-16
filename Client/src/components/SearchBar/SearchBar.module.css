@@ -1,19 +1,21 @@
 .searchBarContainer {
     display: flex;
     justify-content: center;
-    width: 700px;
+    width: 964px;
     height: 75px;
     opacity: 1;
     font-family: cursive;   
+    margin-right: 20px;
 }
 
 .searchBarDiv {  /*tarea, hacerlo responsive*/
-    width: 964px;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin: 0px 10px 0px 0px;
+    margin: 0;
     height: 75px;
+    min-width: fit-content;
     
     
     
@@ -44,12 +46,61 @@
     margin-right: 5px;
     font-family: cursive; 
     font-weight: bold;
+    white-space: nowrap;
+    min-width: fit-content;
     
 }
 
 
 
-@media screen and (max-width: 330px) { .searchBarDiv { width: 95%; } }
-@media screen and (min-width: 330px) and (max-width: 680px) { .searchBarDiv { width: 95%; } .inputBar {width: 65% }}
-@media screen and (min-width: 680px) and (max-width: 1004px) { .searchBarDiv { width: 95%; } }
-@media screen and (min-width: 1004px) and (max-width: 1230px) { .searchBarDiv { width: 964px; } }
+
+
+@media screen and (min-width: 900px) and (max-width: 1230px) {.inputBar { width: 50%} }
+
+@media screen  and (max-width: 900px) { 
+    .searchBarContainer {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .searchBarDiv {
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 50%; 
+    } 
+    
+}
+
+@media screen  and (max-width: 700px) { 
+    .inputBar {
+        width: 35%;
+    }
+
+    .searchBarDiv {
+        width: 35%;
+        justify-content: space-between;
+        align-items: center; 
+        padding: 0;
+        margin: 0;
+    } 
+
+    
+}
+
+@media screen  and (max-width: 450px) { 
+    .inputBar {
+        width: 30vw;
+    }
+    .searchBarDiv {
+        justify-content: center;
+    }
+    .addButton {
+        font-size: 12px;
+        align-items: center;
+    }
+
+    .searchBarContainer {
+       
+        margin-right: 0px;
+        width:100vw;
+    }
+}

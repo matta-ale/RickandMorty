@@ -1,5 +1,4 @@
 const getCharById = require('../src/controllers/getCharById')
-
 const http = require('http')
 const urlCharacterIdBase = '/rickandmorty/character'
 
@@ -13,6 +12,7 @@ http
             case req.url.includes(urlCharacterIdBase):
                 const n = urlCharacterIdBase.length+1
                 const id = Number(req.url.substr(n, req.url.length-n))
+                //acá era más facil const id = req.url.split('/').at(-1) y listo
                 return getCharById(res,id)
             default:
                 return

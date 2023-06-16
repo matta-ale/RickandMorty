@@ -13,7 +13,7 @@ export default function SearchBar(props) {
          <div className = {styles.searchBarDiv}>
             <input type='search' placeholder='Enter card id (number 1 to 826)'className={styles.inputBar} onChange={handleChange} value={id}/>
             <button onClick={() => onSearch(id)} className={styles.addButton}>Add card</button>
-            <button onClick={randomNum} className={styles.addButton}>Add random card</button>
+            <button onClick={randomNum} className={styles.addButton}>Random card</button>
          </div>
       </div>
    );

@@ -3,36 +3,55 @@
     justify-content: center;
     align-items: center;
     height: 550px;
-    width: 100vw;
+    width: 100vw;  
+}
+
+.detailSubContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width:800px;
+    height: 90%;
+    background-color: rgba(0, 0, 0, 0.85); 
     
 }
 
-.dataAndImageContainer {
-    height: 90%;
+.nameDiv{
+    display: flex;
+    align-items: center;
+    background-color: #057c8bcb;
     color: white;
-    background-color: rgba(0, 0, 0, 0.85);
-    display: grid;
-    grid-template-columns: repeat(auto-fit,500px);
-    max-width: 1000px;
-    box-shadow: 15px 15px 0px 0px rgba(0,0,0,0.65);
+    height:70px;
+    width: 93%;
+    margin: 20px 20px 0px 20px;
 }
 
+.nameText {
+    padding-left: 30px;
+}
 
+.dataAndImageContainer {
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative; /*esto va?*/
+}
 
 .dataContainer {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items:center;
-    
-    
+    align-items:center;   
 }
 
 .dataSubContainer {
-    position: relative;
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    padding-left: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,23 +59,11 @@
     word-wrap: break-word;
 }
 
-.nameDiv{
-    display: flex;
-    align-items: center;
-    background-color: #057c8bcb;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height:50px;
-    width: 100%;
-    padding: 0px 0px;
-}
 
 .dataTextContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
-
+    justify-content: flex-start;
 }
 
 .imageContainer {
@@ -68,11 +75,38 @@
 }
 
 .detailImage {
-    height: 90%;
-    float: right;
+    padding-right: 60px;
 }
 
-.h2Text {
-    padding-left: 20px;
-}
 
+@media screen and (max-width: 430px) { 
+    .detailContainer {
+        height: auto;
+    }
+    .nameDiv {
+        width: 300px;
+    }
+    .dataSubContainer {
+        padding-left: 0px;
+    }
+    .dataAndImageContainer {   
+        flex-direction: column-reverse;
+    }
+    .detailImage {
+        padding-right: 0px;
+    }
+    .dataTextContainer {
+        align-items:flex-start;
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .h2Text {
+        margin: 5px;
+        padding: 0;
+    }   
+ }
+/* @media screen and (min-width: 431px) and (max-width: 630px) { .container { width: 400px; } }
+@media screen and (min-width: 631px) and (max-width: 830px) { .container { width:600px;  } }
+@media screen and (min-width: 831px) and (max-width: 1030px) { .container { width: 800px; } }
+@media screen and (min-width: 1031px) and (max-width: 1230px) { .container { width: 1000px; } }  */
+ 

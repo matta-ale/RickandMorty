@@ -28,9 +28,8 @@ const Nav = (props) => {
           </div>
         </Link>
           <div className={styles.navButton}>
-            <button style={{all: 'unset', cursor:'pointer', padding:'20px'}} onClick={handleLogout}>Log out</button>
+            <button style={{all: 'unset', cursor:'pointer', padding:'20px'} } onClick={handleLogout}>Log out</button>
           </div>
-        
       </div>
       <SearchBar onSearch={onSearch} randomNum={randomNum} />
     </div>

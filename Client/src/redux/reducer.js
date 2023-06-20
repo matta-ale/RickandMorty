@@ -7,26 +7,27 @@ const initialState = {
 
 export const favReducer = (state = initialState, action) => {
   switch (action.type) {
+    
     case ADD_FAV:
-      let copy1 = [...state.allCharacters, action.payload];
-      return { ...state, myFavorites: copy1, allCharacters: copy1 };
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
 
-    case REMOVE_FAV:
-      const copy2 = state.myFavorites.filter((char) => {
-        return char.id !== Number(action.payload);
-      });
-      return { ...state, myFavorites: copy2 };
+      case REMOVE_FAV:
+        return { ...state, myFavorites: action.payload };
 
     case FILTER:
       let copy3 = [];
       if (action.payload === 'all') {
         copy3 = state.allCharacters;
-        } else {
+      } else {
         copy3 = state.allCharacters.filter((char) => {
           return char.gender === action.payload;
         });
       }
-      console.log(action.payload)
+      console.log(action.payload);
       return { ...state, myFavorites: copy3 };
 
     case ORDER:

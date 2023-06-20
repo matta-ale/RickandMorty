@@ -1,21 +1,25 @@
-const getCharById = require('../src/controllers/getCharById')
-const http = require('http')
-const urlCharacterIdBase = '/rickandmorty/character'
+const express = require('express')
+const server = express()
+const cors = require('cors');
+const PORT = 3001
+const Router = require('./routes/index')
 
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header(
+       'Access-Control-Allow-Headers',
+       'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    res.header(
+       'Access-Control-Allow-Methods',
+       'GET, POST, OPTIONS, PUT, DELETE'
+    );
+    next();
+ });
 
-http
-    .createServer((req,res) => {
-        res.setHeader('Access-Control-Allow-Origin', '*'); //esto es para que pueda acceder cualquiera (por eso el *)
+server.use(express.json())
 
-        switch (true) {
-            
-            case req.url.includes(urlCharacterIdBase):
-                const n = urlCharacterIdBase.length+1
-                const id = Number(req.url.substr(n, req.url.length-n))
-                //acá era más facil const id = req.url.split('/').at(-1) y listo
-                return getCharById(res,id)
-            default:
-                return
-        }
-    })
-    .listen(3001,'localhost')
+server.use('/rickandmorty', Router)
+
+server.listen(PORT, () => console.log('Server raised in port: ' + PORT))

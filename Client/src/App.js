@@ -12,21 +12,22 @@ import { Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import { ROUTES } from './Helpers/PathRouters';
 
 function App() {
-  const EMAIL = 'matta.ale@gmail.com'
-  const PASSWORD = 'rickmorty1'
+  // const EMAIL = 'matta.ale@gmail.com'
+  // const PASSWORD = 'rickmorty1'
   const [characters, setCharacters] = useState([]);
   const [access,setAccess] = useState(false)
   const location = useLocation();
   const navigate = useNavigate()
 
   const handleLogin = (userData) => {
-    if(userData.email===EMAIL && userData.password===PASSWORD) {
-      setAccess(true)
-      navigate('/home')
-    } else {
-      alert('Incorrect user or password')
-    }
-  }
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+ }
 
   const handleLogout = () => {
     setAccess(false)

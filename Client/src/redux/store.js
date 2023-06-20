@@ -1,4 +1,6 @@
 import { favReducer } from './reducer'
-const {createStore} = require('redux')
+import thunk from 'redux-thunk';
+const {createStore, applyMiddleware} = require('redux')
 
-export const store =createStore(favReducer)
+export const store =createStore(favReducer,applyMiddleware(thunk))
+// export const store =createStore(favReducer) así era antes de meter mano

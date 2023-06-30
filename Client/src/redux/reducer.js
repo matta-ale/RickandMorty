@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './types';
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_FAV } from './types';
 
 const initialState = {
   myFavorites: [],
@@ -7,7 +7,6 @@ const initialState = {
 
 export const favReducer = (state = initialState, action) => {
   switch (action.type) {
-    
     case ADD_FAV:
       return {
         ...state,
@@ -15,8 +14,11 @@ export const favReducer = (state = initialState, action) => {
         allCharacters: action.payload,
       };
 
-      case REMOVE_FAV:
-        return { ...state, myFavorites: action.payload };
+    case REMOVE_FAV:
+      return { ...state, myFavorites: action.payload };
+
+    case GET_FAV:
+      return { ...state, myFavorites: action.payload,allCharacters: action.payload };
 
     case FILTER:
       let copy3 = [];

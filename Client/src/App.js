@@ -30,8 +30,15 @@ function App() {
       setAccess(access);
       access && navigate('/home');
     } catch (error) {
-      const { data } = error.response;
-      window.alert(data.message);
+      
+      const { status,statusText } = error.response;
+      //window.alert(data.message);
+      if (status===401) {
+        window.alert('Incorrect email or password');
+      } else {
+        window.alert(statusText);
+      }
+      
     }
   };
   const handleLogout = () => {

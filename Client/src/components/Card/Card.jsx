@@ -2,32 +2,25 @@ import styles from './Card.module.css';
 import { Link ,useLocation} from 'react-router-dom';
 import { ROUTES } from '../../Helpers/PathRouters';
 import { addFav, removeFav } from '../../redux/actions';
-import { connect } from 'react-redux';
-import { useState , useEffect,} from 'react';
+import { connect ,useSelector} from 'react-redux';
+import { useState , useEffect} from 'react';
 
 function Card(props) {
-  const { id, name, status, species, gender, origin, image, onClose,addFav,removeFav,myFavorites,allCharacters} = props;
+  const { id, name, status, species, gender, origin, image, onClose,addFav,removeFav} = props;
   //acá arriba hice un destructuring de las props para emprolijar el código.
   //Buena práctica
   const character = { id, name, status, species, gender, origin, image, onClose,addFav,removeFav }
   const [isFav, setIsFav] = useState(false);
   const location = useLocation()
-
+  const myFavorites = useSelector((state) => (location.pathname === ROUTES.FAVORITES) ? state.myFavorites : state.allCharacters)
+  
   useEffect(() => {
-    if (location.pathname === ROUTES.FAVORITES) {
+    
       myFavorites.forEach((fav) => {
         if (fav.id === id) {
            setIsFav(true);
         }
      });
-    } else if (location.pathname ===ROUTES.HOME) {
-      allCharacters.forEach((fav) => {
-        if (fav.id === id) {
-           setIsFav(true);
-        }
-     });
-    }
-   
 }, [myFavorites]);
 
 function handleFavorite() {
@@ -74,13 +67,6 @@ function handleFavorite() {
   );
 }
 
-const mapStateToProps = (state) => {
-   
-  return {
-      myFavorites: state.myFavorites,
-      allCharacters: state.allCharacters
-   }
-}
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -94,4 +80,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(null, mapDispatchToProps)(Card);

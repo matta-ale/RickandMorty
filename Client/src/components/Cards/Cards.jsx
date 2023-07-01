@@ -10,7 +10,7 @@ export default function Cards(props) {
          {
             characters.map(char => {
                return (<Card 
-                  key = {char.id} //{Math.random().toString(36).substr(2, 9)}
+                  key = {char.id} 
                   id = {char.id}
                   name = {char.name}
                   status = {char.status.toLowerCase()}

@@ -1,6 +1,6 @@
 const server = require('../src/server')
 const session = require('supertest')
-const agent = session() 
+const agent = session(server)
 
 describe ('Test de RUTAS', () => {
     describe('GET /rickandmorty/character/:id',
@@ -20,13 +20,13 @@ describe ('Test de RUTAS', () => {
     })
 
     describe("GET /rickandmorty/login", () => {
-        it('Responde con access true si pasamos credeciales correctas', async () => {
-            const response = (await agent.get('/rickandmorty/login?matta.ale@gmail.com&password=rickandmorty1')).body
+        it('Responde con access true si pasamos credenciales correctas', async () => {
+            const response = (await agent.get('/rickandmorty/login?email=matta.ale@gmail.com&password=rickmorty1')).body
             expect(response.access).toEqual(true)
         })
 
-        it('Responde con access false si pasamos credeciales incorrectas', async () => {
-            const response = (await agent.get('/rickandmorty/login?matale@gmail.com&password=ricky1')).body
+        it('Responde con access false si pasamos credenciales incorrectas', async () => {
+            const response = (await agent.get('/rickandmorty/login?email=matale@gmail.com&password=ricky1')).body
             expect(response.access).toEqual(false)
         })
     })
@@ -35,12 +35,12 @@ describe ('Test de RUTAS', () => {
         const character1 = {id:1, name: "Ana"}
         const character2 = {id:2, name: "Samuel"}
         it('Retorna lo que envío por body en un arreglo', async () => {
-            const response = ((await agent.post('/rickandmorty/fav')).send(character1)).body
+            const response = (await agent.post('/rickandmorty/fav').send(character1)).body
             expect(response).toContainEqual(character1)
         })
 
         it('Devuelve el elemento previo y el actual', async () => {
-            const response = ((await agent.post('/rickandmorty/fav')).send(character2)).body
+            const response = (await agent.post('/rickandmorty/fav').send(character2)).body
             expect(response).toContainEqual(character1,character2)
         })
     })

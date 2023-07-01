@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, GET_FAV } from './types';
+import { ADD_FAV, REMOVE_FAV, GET_FAV,ORDER_AND_FILTER } from './types';
 import axios from 'axios';
 
 // export const addFav = (character) => {
@@ -61,16 +61,23 @@ export const removeFav = (id) => {
 }
 };
 
-export const filterCards = (gender) => {
-  return {
-    type: FILTER,
-    payload: gender,
-  };
-};
+// export const filterCards = (gender) => {
+//   return {
+//     type: FILTER,
+//     payload: gender,
+//   };
+// };
 
-export const orderCards = (order) => {
+// export const orderCards = (order) => {
+//   return {
+//     type: ORDER,
+//     payload: order,
+//   };
+// };
+
+export const orderAndFilterCards = (orderAndFilter) => {
   return {
-    type: ORDER,
-    payload: order,
-  };
-};
+    type: ORDER_AND_FILTER,
+    payload: orderAndFilter
+  }
+}

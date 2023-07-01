@@ -2,25 +2,40 @@ import { React, useState,useEffect } from 'react';
 import styles from './Favorites.module.css';
 import { connect, useDispatch } from 'react-redux';
 import Card from '../Card/Card';
-import { filterCards, getFav, orderCards } from '../../redux/actions';
+import { orderAndFilterCards, getFav} from '../../redux/actions';
 
 const Favorites = (props) => {
   const { myFavorites } = props;
   const dispatch = useDispatch();
-  const [aux, SetAux] = useState(false);
+  // const [aux, SetAux] = useState(false);
+  const [orderSelectValue, setOrderSelectValue] = useState('A');
+  const [filterSelectValue, setFilterSelectValue] = useState('all');
 
   useEffect( () => {
     dispatch(getFav())
-  },[])
-  const handleOrder = (event) => {
-    dispatch(orderCards(event.target.value));
-    SetAux(!aux);
-  };
+  },[dispatch])
+  
+  // const handleOrder = (event) => {
+  //   dispatch(orderCards(event.target.value));
+  //   SetAux(!aux);
+  // };
 
-  const handleFilter = (event) => {
-    dispatch(filterCards(event.target.value));
-    SetAux(!aux);
-  };
+  // const handleFilter = (event) => {
+  //   dispatch(filterCards(event.target.value));
+  //   SetAux(!aux);
+  // };
+
+  const handleOrderAndFilter = (event) => {
+    const value = event.target.value
+    if (event.target.name === 'order') {
+      setOrderSelectValue(value)
+      dispatch(orderAndFilterCards({filterSelectValue, orderSelectValue:value}))
+    }
+    if (event.target.name === 'filter') {
+      setFilterSelectValue(value)
+      dispatch(orderAndFilterCards({filterSelectValue:value, orderSelectValue}))
+    }
+  }
 
   const onClose = () => {
     console.log('close button pressed on favorites page, no further action');
@@ -31,13 +46,13 @@ const Favorites = (props) => {
         <div className={styles.filtersContainer}>
           <h1 className={styles.title}>Favorites</h1>
           <div className={styles.selectSection}>
-            <select className={styles.select} onChange={handleOrder}>
+            <select name="order" className={styles.select} onChange={handleOrderAndFilter}>
               <option value='A'>Ascendent</option>
               <option value='D'>Descendent</option>
             </select>
           </div>
           <div className={styles.selectSection}>
-            <select className={styles.select} onChange={handleFilter}>
+            <select name = "filter" className={styles.select} onChange={handleOrderAndFilter}>
               <option value='all'>All</option>
               <option value='male'>Male</option>
               <option value='female'>Female</option>

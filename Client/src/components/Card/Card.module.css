@@ -43,6 +43,7 @@
     width: 300px;
 }
 
+
 .closeButton {
     height: 30px;
     width: 30px;
@@ -58,7 +59,7 @@
 }
 
 .closeButton:hover {
-    background-color: rgba(247, 75, 85, 80%);
+    background-color: rgba(247, 75, 85, 100%);
     /*#f74b55*/
     transform: scale(1.1);
 }
@@ -93,7 +94,7 @@
 }
 
 .favButton:hover {
-    opacity: 80%;
+    opacity: 100%;
     transform: scale(1.1);
 }
 
@@ -106,8 +107,8 @@
 .nameButton {
     display: flex;
     align-items: center;
-    /* background-color: #057c8bcb; */
-    background: linear-gradient(90deg, #011214cb, #2bb0c2cb);
+    background-color: #057c8bcb; 
+    /* background: linear-gradient(90deg, #057c8bcb, #56d3e4cb); */
     position: absolute;
     top: 270px;
     left: 0px;
@@ -122,12 +123,10 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    opacity: 75%;
 }
 
 .nameButton:hover {
     cursor: pointer;
-    opacity: 100%;
 }
 
 .ripplesContainer {

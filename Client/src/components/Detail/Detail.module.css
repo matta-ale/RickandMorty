@@ -20,7 +20,8 @@
 .nameDiv{
     display: flex;
     align-items: center;
-    background-color: #057c8bcb;
+    /* background-color: #057c8bcb; */
+    background: linear-gradient(90deg,#03505acb,#96e8f3cb);
     color: white;
     height:70px;
     width: 93%;
@@ -76,15 +77,26 @@
 
 .detailImage {
     padding-right: 60px;
+    width: 93%;
+    height: auto;
 }
 
-
-@media screen and (max-width: 430px) { 
+@media screen and (max-width: 900px) { 
+    
+    
     .detailContainer {
         height: auto;
     }
+    .detailSubContainer {
+        margin-top: 100px;
+        max-width: 60%;
+    }
     .nameDiv {
-        width: 300px;
+        width: 85%;
+        justify-content: center;
+    }
+    .nameText {
+        padding-left: 0px;
     }
     .dataSubContainer {
         padding-left: 0px;
@@ -93,17 +105,30 @@
         flex-direction: column-reverse;
     }
     .detailImage {
+        margin-top: 30px;
         padding-right: 0px;
+        width: 85%;
+        height: auto;
     }
     .dataTextContainer {
+        margin-top: 20px;
+        margin-bottom: 20px;
         align-items:flex-start;
         max-width: 300px;
         max-height: 300px;
+        font-size: 12px;
     }
     .h2Text {
         margin: 5px;
         padding: 0;
-    }   
+    }
+    
+ }
+
+ @media screen and (max-width: 400px) {
+    .dataTextContainer {
+    font-size: 10px;
+    }
  }
 /* @media screen and (min-width: 431px) and (max-width: 630px) { .container { width: 400px; } }
 @media screen and (min-width: 631px) and (max-width: 830px) { .container { width:600px;  } }

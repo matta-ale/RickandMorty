@@ -7,17 +7,19 @@ import Error from './components/Error/Error';
 import Form from './components/Form/Form';
 import Favorites from './components/Favorites/Favorites';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from './Helpers/PathRouters';
+import { setUserId,resetFavs } from './redux/actions';
+
 
 function App() {
-  // const EMAIL = 'matta.ale@gmail.com'
-  // const PASSWORD = 'rickmorty1'
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   const handleLogin = async (userData) => {
     try {
@@ -26,15 +28,18 @@ function App() {
       const { data } = await axios(
         URL + `?email=${email}&password=${password}`
       );
-      const { access } = data;
+      const { access,userId } = data;
+      dispatch(setUserId(userId))  
+      dispatch(resetFavs(userId))
       setAccess(access);
       access && navigate('/home');
     } catch (error) {
       
-      const { status,statusText } = error.response;
+      const { status,statusText,data } = error.response;
       //window.alert(data.message);
-      if (status===401) {
-        window.alert('Incorrect email or password');
+      if (status===404 || status ===403) {
+        //window.alert('Incorrect email or password');
+        window.alert(data);
       } else {
         window.alert(statusText);
       }
@@ -42,6 +47,7 @@ function App() {
     }
   };
   const handleLogout = () => {
+    setCharacters([])
     setAccess(false);
   };
 

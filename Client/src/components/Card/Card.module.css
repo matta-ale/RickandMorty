@@ -2,32 +2,55 @@
     margin: 10px;
     display: inline-block;
     text-align: center;
-    box-shadow: 15px 15px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 50px 0px 50px 0px;
+}
+
+@keyframes rotateCard {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    33% {
+      transform: rotate(-2deg) scale(1.06);
+    }
+    67% {
+        transform: rotate(2deg) scale(1.06);
+    }
+    100% {
+        transform: rotate(0deg) scale(1.06);
+    }
+  }
+
+.card:hover {
+    animation: rotateCard 0.7s forwards;
+    z-index: 1;
 }
 
 .card img {
-    
+
     border-bottom: 5px ridge goldenrod;
-    
+    border-radius: 45px 0px 0px 0px;
     /*width: 100%;
     heigth: 100%;*/
 }
 
 .imageAndTextContainer {
     position: relative;
-    background-color: rgba(0, 0, 0,1);
+    background-color: rgba(0, 0, 0, 1);
     border: 5px ridge goldenrod;
+    border-radius: 50px 0px 50px 0px;
     max-width: 300px;
     width: 300px;
 }
 
-.closeButton{
+.closeButton {
     height: 30px;
     width: 30px;
-    border-radius: 50%; /*con esto lo hago redondo (y ancho y alto iguales)*/
+    border-radius: 50%;
+    /*con esto lo hago redondo (y ancho y alto iguales)*/
     font-size: medium;
     font-weight: bold;
-    background-color: rgba(247, 75, 85,50%);
+    background-color: rgba(247, 75, 85, 50%);
     position: absolute;
     top: 5px;
     right: 5px;
@@ -35,12 +58,15 @@
 }
 
 .closeButton:hover {
-    background-color: rgba(247, 75, 85,80%);/*#f74b55*/
-    transform: scale(1.1);						 
+    background-color: rgba(247, 75, 85, 80%);
+    /*#f74b55*/
+    transform: scale(1.1);
 }
 
 .closeBbutton:active {
-    transform: scale(1);		/*#f74b55 pasado a opaco*/				 ;
+    transform: scale(1);
+    /*#f74b55 pasado a opaco*/
+    ;
 }
 
 .favButton {
@@ -49,10 +75,11 @@
     align-items: center;
     height: 30px;
     width: 30px;
-    border-radius: 50%; /*con esto lo hago redondo (y ancho y alto iguales)*/
+    border-radius: 50%;
+    /*con esto lo hago redondo (y ancho y alto iguales)*/
     font-size: medium;
     font-weight: bold;
-    background-color:goldenrod; 
+    background-color: goldenrod;
     opacity: 50%;
     position: absolute;
     top: 40px;
@@ -67,29 +94,75 @@
 
 .favButton:hover {
     opacity: 80%;
-    transform: scale(1.1);						 
+    transform: scale(1.1);
 }
 
 .favBbutton:active {
-    transform: scale(1);		/*#f74b55 pasado a opaco*/				 ;
+    transform: scale(1);
+    /*#f74b55 pasado a opaco*/
+    ;
 }
 
-.nameDiv{
+.nameButton {
     display: flex;
     align-items: center;
-    background-color: #057c8bcb;
+    /* background-color: #057c8bcb; */
+    background: linear-gradient(90deg, #011214cb, #2bb0c2cb);
     position: absolute;
     top: 270px;
     left: 0px;
-    /*transform: translate(-50%, -50%);*/
-    height:30px;
-    width:fit-content;
+    height: 30px;
     font-size: 1em;
+    border: none;
+    color: white;
+    font-family: cursive;
+    font-weight: bold;
+    white-space: nowrap;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 75%;
 }
 
-.imageAndTextContainer h2{
+.nameButton:hover {
+    cursor: pointer;
+    opacity: 100%;
+}
+
+.ripplesContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ripplesContainer .span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
+
+.imageAndTextContainer h2 {
     padding: 0px 10px;
-    margin:0px;
+    margin: 0px;
     color: rgb(255, 255, 255);
     font-size: 12px;
 }
@@ -98,7 +171,7 @@
     font-size: 14px;
 }
 
-.imageAndTextContainer .name{
+.imageAndTextContainer .name {
     font-size: 17px;
 }
 
@@ -109,28 +182,33 @@
     padding: 0px 0px 5px 0px;
     background-image: url('../../img/text-detail-img.png');
     background-position: right;
-    background-size:contain;
+    background-size: contain;
+    border-radius: 0px 0px 50px 0px;
 }
 
 
-@media screen and (max-width: 300px) { 
-    .imageAndTextContainer {  
+@media screen and (max-width: 300px) {
+    .imageAndTextContainer {
         max-width: 90vw;
-     }
-     .card {
+    }
+
+    .card {
         box-shadow: none;
-     }
-     .card img {
+    }
+
+    .card img {
         width: 90vw;
     }
-    .nameDiv{
+
+    .nameDiv {
         top: 222px;
     }
+
     .imageAndTextContainer h2 {
         font-size: 10px;
     }
+
     .imageAndTextContainer span {
         font-size: 12px;
     }
 }
-

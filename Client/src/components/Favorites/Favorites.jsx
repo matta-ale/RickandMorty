@@ -10,21 +10,12 @@ const Favorites = (props) => {
   // const [aux, SetAux] = useState(false);
   const [orderSelectValue, setOrderSelectValue] = useState('A');
   const [filterSelectValue, setFilterSelectValue] = useState('all');
-
+ 
+  //¿esto de acá abajo reemplaza al mapDispatch to props de la misma forma que el useSelector reemplaza al mapStateToProps?
   useEffect( () => {
     dispatch(getFav())
   },[dispatch])
   
-  // const handleOrder = (event) => {
-  //   dispatch(orderCards(event.target.value));
-  //   SetAux(!aux);
-  // };
-
-  // const handleFilter = (event) => {
-  //   dispatch(filterCards(event.target.value));
-  //   SetAux(!aux);
-  // };
-
   const handleOrderAndFilter = (event) => {
     const value = event.target.value
     if (event.target.name === 'order') {

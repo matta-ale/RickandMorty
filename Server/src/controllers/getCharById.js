@@ -18,8 +18,6 @@ const fullfilled = (response, res) => {
       image: image,
       status: status,
     };
-    //  res.writeHead(200, {"Content-Type":"application/json"})
-    //  res.end(JSON.stringify(charObj))
     res.status(200).json(charObj);
     return res;
   }
@@ -27,7 +25,6 @@ const fullfilled = (response, res) => {
 
 async function getCharById(req, res) { //ver cómo manejar errores en la captura getCharById.jpg, en carpeta server
   const { id } = req.params;
-  console.log(id);
   try {
     const response = await axios.get(URL + id);
     return fullfilled(response, res);

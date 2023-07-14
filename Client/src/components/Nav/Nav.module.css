@@ -1,5 +1,5 @@
 .navDiv {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
@@ -7,23 +7,92 @@
     background-color: rgba(0, 0, 0, 0.7);
     font-family: cursive;
     font-weight: bold;
-   
+
 }
 
 .navButtonGroup {
     display: flex;
     justify-content: space-evenly;
 }
-.navButton{
-    display:flex;
+
+.navButton {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 75px;
-    width:120px;
+    width: 120px;
     font-size: 22px;
     color: white;
     text-decoration: none;
     white-space: nowrap;
+    /* animation */
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.navButton span {
+    translate: 0px -4px;
+}
+
+@keyframes moveUpAppear {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateY(-25%);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translateY(-75%);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(100%);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translateY(75%);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateY(50%);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateY(25%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navButton:hover span {
+    animation: moveUpAppear 0.7s ;
 }
 
 
@@ -31,30 +100,35 @@
 
 
 
-@media screen and (max-width: 450px) { 
-    
+
+
+
+
+@media screen and (max-width: 450px) {
+
     .navButtonGroup {
         justify-content: space-between;
         max-width: 100vw;
     }
+
     .navButton {
         width: 90px;
         font-size: 16px;
     }
- }
+}
 
- @media screen and (max-width: 350px) { 
+@media screen and (max-width: 350px) {
 
     .navButton {
         width: 70px;
         font-size: 12px;
-        
+
     }
- }
+}
 
 
-@media screen and (max-width: 900px) { 
+@media screen and (max-width: 900px) {
     .navDiv {
         flex-direction: column;
     }
- }
+}

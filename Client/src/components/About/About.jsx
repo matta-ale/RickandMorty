@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './About.module.css';
-import image from '../../img/about.png'
+import myPic from '../../img/about.png'
+import github from'../../img/github.png'
+import linkedin from'../../img/linkedin.png'
 
 export default function about() {
   return (
@@ -12,18 +14,21 @@ export default function about() {
               <h2 className={styles.h2Text}>Alexis Mattaruco</h2>
             </div>
             <div className={styles.bulletPointsContainer}>
-              <ul className={styles.unOrderdList}>
+              <ul className={styles.unOrderedList}>
                 <li>FullStack Developer</li>
                 <li>Industrial Engineer</li>
                 <li>Master degree in Finance</li>
                 <li>Looking onto a career change</li>
-                <li><a href="https://www.linkedin.com/in/alexis-santiago-mattaruco-64037b231/">LinkedIn profile</a></li>
               </ul>
+              <div className={styles.links}>
+                <a href="https://www.linkedin.com/in/alexis-santiago-mattaruco-64037b231/"><img src={linkedin} alt="linkedin" /></a>
+                <a href="https://github.com/matta-ale"><img src={github} alt="github" /></a>
+              </div>
             </div>
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <img className={styles.detailImage} src={image} alt='character' />
+          <img className={styles.detailImage} src={myPic} alt='character' />
         </div>
       <div className = {styles.textContainerWrapper}>  
         <div className={styles.dataTextContainer}>

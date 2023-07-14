@@ -3,9 +3,10 @@
     justify-content: space-evenly;
     align-items: center;
     margin: 20px auto 10px auto;
-    max-width: 960px;
+    max-width: 1290px;
     height: 100px;
-    background-color:rgba(0,0,0,0.75);
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.75);
     border: 5px ridge goldenrod;
 }
 
@@ -15,8 +16,8 @@
     align-items: center;
     min-width: 200px;
     max-width: 250px;
-    height: 30px; 
-    
+    height: 30px;
+
 }
 
 .title {
@@ -41,7 +42,7 @@
     margin-top: 0px;
     padding-bottom: 4px;
     cursor: pointer;
-    
+
 }
 
 .select:focus {
@@ -52,8 +53,48 @@
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit,330px);
+    grid-template-columns: repeat(auto-fit, 330px);
     margin: 10px auto;
     justify-content: center;
-    max-width: 990px;
+    max-width: 1320px;
+}
+
+@media screen and (max-width: 1334px) {
+    .filtersContainer {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 1004px) {
+    .filtersContainer {
+        max-width: 631px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .filtersContainer {
+        margin-top: 90px;
+    }
+}
+
+@media screen and (max-width: 674px) {
+    .filtersContainer {
+        flex-direction: column;
+        max-width: 300px;
+        height: 220px;
+        
+    }
+    .selectSection {
+        margin: 5px 0px;
+    }
+    .title {
+        margin: 5px 0px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
 }

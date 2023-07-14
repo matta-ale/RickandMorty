@@ -1,5 +1,5 @@
 import styles from './Card.module.css';
-import { Link ,useLocation} from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
 import { ROUTES } from '../../Helpers/PathRouters';
 import { addFav, removeFav } from '../../redux/actions';
 import { connect ,useSelector} from 'react-redux';
@@ -7,13 +7,14 @@ import { useState , useEffect} from 'react';
 
 function Card(props) {
   const { id, name, status, species, gender, origin, image, onClose,addFav,removeFav} = props;
-  //acá arriba hice un destructuring de las props para emprolijar el código.
-  //Buena práctica
-  const character = { id, name, status, species, gender, origin, image, onClose,addFav,removeFav }
   const [isFav, setIsFav] = useState(false);
+  const [ripples, setRipples] = useState(null);
   const location = useLocation()
+  const navigate = useNavigate();
   const myFavorites = useSelector((state) => (location.pathname === ROUTES.FAVORITES) ? state.myFavorites : state.allCharacters)
-  
+  const userId = useSelector((state) => state.userId)
+  const character = { id, name, status, species, gender, origin, image, onClose,addFav,removeFav ,userId}
+  console.log(character);
   useEffect(() => {
     
       myFavorites.forEach((fav) => {
@@ -21,11 +22,29 @@ function Card(props) {
            setIsFav(true);
         }
      });
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [myFavorites]);
 
 function handleFavorite() {
-    isFav ? removeFav(id) : addFav(character);
+    console.log('en handleFavorite: '+userId);
+    isFav ? removeFav(id,userId) : addFav(character);
     setIsFav(!isFav);
+  }
+
+  function handleNameClick(e) {
+    e.preventDefault() //esto es para que no se vaya derecho a la otra página y permita el efecto mostrarse
+    const { clientX, clientY, currentTarget } = e;
+    const buttonRect = currentTarget.getBoundingClientRect();
+    let x = clientX - buttonRect.left;
+    let y = clientY - buttonRect.top;
+    const ripples = (
+      <span className={styles.span} style={{ left: x, top: y }}></span>
+    );
+    setRipples(ripples);
+    setTimeout(() => {
+      setRipples(null);
+      navigate(ROUTES.DETAIL + `${id}`)
+    }, 700);
   }
 
   return (
@@ -39,11 +58,9 @@ function handleFavorite() {
       )}
         <img src={image} alt='character' />
         <button className={styles.closeButton}onClick={() => onClose(id)}>X</button>
-        <Link to={ROUTES.DETAIL + `${id}`}>
-          <div className={styles.nameDiv}>
-            <h2 className={styles.name}>{name}</h2>
-          </div>
-        </Link>
+        <div className={styles.ripplesContainer}>
+          <button className={styles.nameButton} id="nameButton" onClick={handleNameClick}>{name}{ripples}</button>
+        </div>
         <div className={styles.infoDiv}>
           <h2>
             <span>Status: </span>
@@ -74,8 +91,8 @@ const mapDispatchToProps = (dispatch) => {
     addFav: (character) => {
       dispatch(addFav(character));
     },
-    removeFav: (id) => {
-      dispatch(removeFav(id));
+    removeFav: (id, userId) => {
+      dispatch(removeFav(id,userId));
     },
   };
 };
